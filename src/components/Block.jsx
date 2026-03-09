@@ -1,37 +1,37 @@
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 
-const Block = memo(function Block({ width, left, color, index, totalBlocks, isNew }) {
-    const [colorLight, colorDark] = color;
-    const relativeIndex = totalBlocks - 1 - index;
-
+const Block = memo(function Block({ width, left, color, index, isNew }) {
+    // Derive lighter/darker shades from the base color for cartoon look
     return (
         <motion.div
-            initial={isNew ? { scaleY: 0, opacity: 0.5 } : false}
-            animate={{ scaleY: 1, opacity: 1 }}
-            transition={{ duration: 0.12, ease: 'easeOut' }}
+            initial={isNew ? { scaleY: 0 } : false}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 0.1, ease: 'easeOut' }}
             style={{
                 position: 'absolute',
                 bottom: 0,
                 left: `calc(50% + ${left}px)`,
                 width: `${width}px`,
-                height: '20px',
+                height: '24px',
                 transformOrigin: 'bottom',
-                background: `linear-gradient(90deg, ${colorDark}, ${colorLight}, ${colorDark})`,
-                borderRadius: '4px',
-                boxShadow: `0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3)`,
+                background: color,
+                borderRadius: '6px',
+                border: '2.5px solid rgba(0,0,0,0.18)',
+                boxShadow: `0 4px 0 rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.12)`,
                 zIndex: index,
+                overflow: 'hidden',
             }}
         >
-            {/* Shine streak */}
+            {/* Top shine */}
             <div style={{
                 position: 'absolute',
-                top: '3px',
-                left: '8px',
-                right: '8px',
-                height: '3px',
-                background: 'rgba(255,255,255,0.4)',
-                borderRadius: '2px',
+                top: 3,
+                left: 8,
+                right: 8,
+                height: 5,
+                background: 'rgba(255,255,255,0.45)',
+                borderRadius: 3,
             }} />
         </motion.div>
     );

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Fredoka+One&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,7 +11,7 @@
 body {
   font-family: 'Inter', sans-serif;
   overflow: hidden;
-  background: #0a0a1a;
+  background: #0f172a;
 }
 
 #root {
@@ -20,66 +20,31 @@ body {
   overflow: hidden;
 }
 
-.game-title {
-  font-family: 'Orbitron', monospace;
-}
-
-/* Floating money animation */
-@keyframes floatUp {
-  0% { opacity: 1; transform: translateY(0) scale(1); }
-  100% { opacity: 0; transform: translateY(-80px) scale(1.3); }
-}
-
-.float-money {
-  animation: floatUp 1.2s ease-out forwards;
-  pointer-events: none;
-}
-
-/* Block glow pulse */
-@keyframes blockGlow {
-  0%, 100% { box-shadow: 0 0 10px rgba(99, 255, 180, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(99, 255, 180, 0.8); }
-}
-
 /* Shake on miss */
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-10px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-10px);
+  }
+
+  40% {
+    transform: translateX(10px);
+  }
+
+  60% {
+    transform: translateX(-8px);
+  }
+
+  80% {
+    transform: translateX(8px);
+  }
 }
 
 .shake {
   animation: shake 0.5s ease;
 }
-
-/* Sky gradient background */
-.sky-bg {
-  background: linear-gradient(180deg, 
-    #0f0c29 0%, 
-    #302b63 40%, 
-    #24243e 70%,
-    #1a1a3e 100%
-  );
-}
-
-/* Tower platform */
-.tower-platform {
-  background: linear-gradient(90deg, #3a2a0a, #7a5c20, #3a2a0a);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-}
-
-/* Upgrade card hover */
-.upgrade-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.upgrade-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(99, 255, 180, 0.2);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
-::-webkit-scrollbar-thumb { background: rgba(99,255,180,0.3); border-radius: 3px; }
